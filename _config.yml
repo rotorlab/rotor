@@ -24,7 +24,7 @@ github_username:  rotorlab
 
 # Build settings
 markdown: kramdown
-theme: materialized-jekyll
+theme: minima
 plugins:
   - jekyll-feed
 
