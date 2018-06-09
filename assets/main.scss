@@ -3,3 +3,39 @@
 ---
 
 @import "minima";
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300');
+
+pre, code {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #fff!important;
+}
+
+.highlight .kd {
+  font-weight: normal !important;
+  color: rgba(0, 153, 53, 0.79)
+}
+
+.highlight .k {
+  font-weight: normal !important;
+  color: rgba(0, 153, 53, 0.79)
+}
+
+.highlight .kc, .highlight .mi {
+  font-weight: normal !important;
+  color: rgba(0, 153, 53, 0.91)
+}
+
+.highlight .na, .highlight .nb, span.p, span.o {
+  font-weight: normal !important;
+  color: rgba(0, 153, 53, 0.75);
+}
+
+.highlight .nf {
+  font-weight: normal !important;
+  color: rgba(0, 111, 29, 0.75);
+}
+
+.highlight .s2, .highlight .s1, .highlight .s {
+  font-weight: normal !important;
+  color: rgba(0, 0, 0, 0.49);
+}
