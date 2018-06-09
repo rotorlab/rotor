@@ -1,35 +1,31 @@
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+<footer class="site-footer">
 
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+  <div class="container">
 
     <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
+      <div class="footer-col">
+        <p class="tagline">{{ site.description | escape }}</p>
+
+        <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
         <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-            </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
+          {% if site.email %}
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          {% endif %}
         </ul>
       </div>
+    </div>
 
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        Copyright © {{ 'now' | date: "%Y" }} {{ site.title | escape }}. All Rights Reserved. |
+        Theme by <a href="https://github.com/tinglu/materialized-jekyll">Materialized Jekyll</a> developed by <a href="https://github.com/tinglu">TING LU</a>
       </div>
     </div>
 
   </div>
 
 </footer>
+
+<script !src="{{ "/assets/node_modules/jquery/dist/jquery.min.js" | relative_url }}"></script>
+<script !src="{{ "/assets/node_modules/materialize-css/js/materialize.min.js" | relative_url }}"></script>
