@@ -1,4 +1,5 @@
 .navigation-bar-fix {
+  overflow-y: scroll;
   position: fixed;
   top: 41px;
   left: 0px;
@@ -12,7 +13,7 @@
 }
 
 .navigation-bar {
-  top: 55px;
+  top: 60px;
   left: 0px;
   width: 250px;
   height: 100%;
@@ -47,15 +48,23 @@
   font-family: 'Roboto Mono', monospace;
 }
 
-.nav-list > li > p {
+.nav-list > li > a {
   margin-top: 12px;
   margin-bottom: 10px;
 }
 
-li > p.title {
+li > a.title {
+  letter-spacing: 1px;
   font-weight: bold;
   font-family: $base-font-family;
   font-size: 15px;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  text-decoration: none;
+  cursor: pointer;
+  color: $text-color;
 }
 
 .nav-list > li:last-child {
@@ -64,9 +73,13 @@ li > p.title {
 
 ul.sub-list {
   list-style-type: none;
+  padding-bottom: 5px;
 }
 
-.sub-list > li > p {
+.sub-list > li > a {
+  color: $text-color;
+  cursor: pointer;
+  text-decoration: none;
   margin-bottom: 5px;
 }
 

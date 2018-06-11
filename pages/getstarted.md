@@ -4,13 +4,18 @@ title: Get Started
 permalink: /get-started/
 ---
 
+For start working with Rotor, you must connect your server (API) and clients (only Android yet) with Redis.
+> Install Redis before follow this guide.
+
 ### Prepare Rotor Server
+Let's prepare a Rotor server over your API.
+ 
 Install the package:
 {% highlight bash %}
 npm install rotor-server --save
 {% endhighlight %}
-
-Implement Rotor Server in your API:
+ 
+And start the server:
 {% highlight js %}
 const RotorServer = require('rotor-server');
 const RS = new RotorServer({
@@ -23,7 +28,7 @@ const RS = new RotorServer({
 RS.start();
 {% endhighlight %}
 
-`start()` method will launch Redis server, Rotor server and Turbine (database manager).
+`start()` method will launch Redis server (if it's dead), Rotor server and Turbine (database manager). For more information about Turbine, check out [this link](/server/turbine/).
  
 `databases` param defines a list of database names for load. If any database doesn't exist, it will be created.
  
