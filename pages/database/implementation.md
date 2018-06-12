@@ -1,15 +1,49 @@
 ---
 layout: page
-title: Database
+title: Database Implementation
 permalink: /database/implementation/
 ---
 
-Database is a complementary module for Rotor Core. It allows to work with shared (Java) objects between many devices offering users real time changes and better mobile data consumption. 
+Import libraries:
 
-Forget things like swipe-to-refresh events, lots of server requests and object storage management. 
+{% highlight groovy %}
+android {
+    defaultConfig {
+        multiDexEnabled true
+    }
+}
+ 
+def rotor_version =  "0.3"
+ 
+dependencies {
+    implementation ("com.rotor:core:$rotor_version@aar") {
+        transitive = true
+    }
+    implementation ("com.rotor:database:$rotor_version@aar") {
+        transitive = true
+    }
+}
+{% endhighlight %}
 
-**Rotor Database philosophy** states that the only needed requests are those that change data on remote database. That means that the rest of requests you are imaging are removed now.
+> `transitive` flag is needed for implementing Rotor Core dependencies
  
-<p align="center"><img width="80%" vspace="20" src=" {{ "/assets/shema_rotor.png" | absolute_url }}"></p>
- 
-Rotor Core is connected to Rotor and Redis servers. The first one controls object sharing queues, devices waiting for changes and all data edition on remote database. The second (as you probably know) gives us Pub/Sub messaging pattern for data changes replication.
+Initialize database module after Rotor Core initialization. Should be invoked on `LoadingActivity` or `SplashActivity`:
+{% highlight java %}
+Rotor.initialize(getApplicationContext(), "http://10.0.2.2:1508/",
+    "redis://10.0.2.2", new StatusListener() {
+        @Override
+        public void connected() {
+             Database.initialize()
+             
+             // login - main UI
+             // start listen references
+        }
+        
+        @Override
+        public void reconnecting() {
+             
+        }
+    }
+);
+{% endhighlight %}
+
