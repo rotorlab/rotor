@@ -4,13 +4,13 @@ title: Queries And Masks
 permalink: /database/queries-masks/
 ---
 
-In the last section we have seen how to work with remote objects, but: What about doing queries to database?
+In the last section, we have seen how to work with remote objects, but: What about doing queries to the database?
 
 Sometimes our app's workflow will need to check some data, for example:
 
-> Database: give me all chat rooms where logged user appears
+> Database: give me all chat rooms where the logged user appears
 
-And then print all this chats in a list.
+And then print all these chats in a list.
 
 Let's see how simple is querying data.
 
@@ -64,11 +64,11 @@ Database.query("myDatabase",
 
 What are we seeing here?
 
-First parameter is the **database name** where we will look for data: `myDatabase`
+The first parameter is the **database name** where we will look for data: `myDatabase`
 
-Second parameter is the **path** where data should exists: `/chats/*`
+The second parameter is the **path** where data should exist: `/chats/*`
 
-Third parameter is the **query**:
+The third parameter is the **query**:
 {% highlight json %}
 {
     "members": {
@@ -79,13 +79,14 @@ Third parameter is the **query**:
 }
 {% endhighlight %}
 
-Fourth parameter is the **mask**, which will refactor the response:
+The fourth parameter is the **mask**, which will refactor the response:
 {% highlight json %}
 {
     "id": ""
 }
 {% endhighlight %}
 
+#### Result
 **Query** method will always return a list of results. In this case (with a mask) the response will be:
 {% highlight json %}
 [

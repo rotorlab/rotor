@@ -61,8 +61,7 @@ Database.listen("database",                       // database name
 
 
 #### onCreate
-Called when object is not created in remote DB yet. Object is defined and synchronized with server here. This method won't be called if object already exists on server, `onChange` method will be called instead.
-
+Called when the object is not created in remote DB yet. The object is defined and synchronized with the server here. This method won’t be called if the object already exists on the server, `onChange` method will be called instead
 {% highlight java %}
 // java
 @Override
@@ -73,7 +72,7 @@ public void onCreate() {
 {% endhighlight %}
 
 #### onChanged
-Called in two situations, when some device has made changes on the same object and when `listen` method is called and the object is cached. Database library pass the object up to date as parameter.
+Called in two situations, when some device has made changes on the same object and when `listen` method is called and the object is cached. Database library pass the object up to date as a parameter.
 {% highlight java %}
 @Override
 public void onChanged(ObjectA objectA) {
@@ -83,7 +82,7 @@ public void onChanged(ObjectA objectA) {
 {% endhighlight %}
 
 #### onUpdate
-Called when `sync` method is invoked. Differences with the last "fresh" object passed by library are calculated and sent to server.
+Called when `sync` method is invoked. Differences with the last “fresh” object passed by the library are calculated and sent to the server.
 {% highlight java %}
 @Override
 public ObjectA onUpdate() {
@@ -119,14 +118,14 @@ Database.sync("/myObjects/objectA");
 
 ## Unlisten
 
-Remove listener in server by calling `unlisten(path: String)`.
+Remove listener in the server by calling `unlisten(path: String)`.
 {% highlight java %}
 Database.unlisten("/myObjects/objectA");
 {% endhighlight %}
 
 ## Remove
 
-Remove reference in database by calling `remove(path: String)`. `onDestroy` will be called.
+Remove reference in the database by calling `remove(path: String)`. `onDestroy` will be called.
 {% highlight java %}
 Database.remove("/myObjects/objectA");
 {% endhighlight %}

@@ -70,4 +70,4 @@ Rotor.initialize(getApplicationContext(), "http://10.0.2.2:1508/",
 );
 {% endhighlight %}
 
-Now your app is ready to implement [realtime databases](/database) and [notifications](/notifications).
+Now your app is ready to implement [real-time databases](/database) and [notifications](/notifications).
