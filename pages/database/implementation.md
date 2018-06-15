@@ -25,7 +25,7 @@ dependencies {
 }
 {% endhighlight %}
 
-> `transitive` flag is needed for implementing Rotor Core dependencies
+> `transitive` flag is needed for implementing Rotor Database dependencies
  
 Initialize database module after Rotor Core initialization. Should be invoked on `LoadingActivity` or `SplashActivity`:
 {% highlight java %}

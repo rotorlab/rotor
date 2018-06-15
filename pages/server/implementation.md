@@ -1,18 +1,37 @@
 ---
 layout: page
-title: Server
+title: Server Implementation
 permalink: /server/implementation/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Install the package:
+{% highlight bash %}
+npm install rotor-server --save
+{% endhighlight %}
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Implement on the main process of your API:
+{% highlight js %}
+const RotorServer = require('rotor-server');
+{% endhighlight %}
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+## Start server
+Rotor server wakes up few processes. The first one is the `turbine` process, which preloads JSON databases. The rest are clusters (except master) which process all device requests updating databases (with `turbine` process) and replicating changes (with Redis).
 
+Don't worry about start or stop them. They will alive with your API process.
+Start it by calling `start()` method:
+{% highlight js %}
+const RotorServer = require('rotor-server');
+const RS = new RotorServer({
+   "server_port": 1508,
+   "turbine_port": 1510,
+   "redis_port": 6379,
+   "databases": ["database"],
+   "debug": true
+});
+RS.start();
+{% endhighlight %}
 
-[jekyll-organization]: https://github.com/jekyll
+`start()` method will launch Redis server (if it's dead), Rotor server and Turbine (database manager). For more information about Turbine, check out [this link](/server/turbine/).
+ 
+`databases` param defines a list of database names for load. If any database doesn't exist, it will be created.
+

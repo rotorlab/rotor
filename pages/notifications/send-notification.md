@@ -1,18 +1,36 @@
 ---
 layout: page
-title: Notifications
+title: Send Notification
 permalink: /notifications/send/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Build and send notifications is very easy:
+{% highlight java %}
+Content content = new Content(ACTION_CHAT,  // requestCode
+        "Hi :)",                            // title
+        "Welcome to notifications!",        // body
+        "my_room",                          // room
+        "myChannel",                        // channel ID           (Android 8)
+        "Test channel",                     // channel description  (Android 8)
+        "https://lh6.google...oto.jpg",     // small photo url
+        "https://lh6.google...oto.jpg",     // big photo url
+);                              
+ 
+ArrayList<String> ids = new ArrayList<>();  // device ids that will receive
+                                            // the notification
+ids.add("56783g345guik456"); // <-- device id A
+ids.add("48484aad18e02d76"); // <-- device id B
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+// send
+Notifications.notify(Notifications.builder(content, ids));
+{% endhighlight %}
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Be careful sending notifications to yourself. Only should do for testing purposes.
+{% highlight java %}
+Content content = new Content(...);                              
+ 
+ArrayList<String> ids = new ArrayList<>();       
+ids.add(Rotor.id); // <-- don't do it in production environments
 
-
-[jekyll-organization]: https://github.com/jekyll
+Notifications.notify(Notifications.builder(content, ids));
+{% endhighlight %}

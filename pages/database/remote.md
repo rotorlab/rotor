@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Working With Remote Objects
+title: Remote Objects
 permalink: /database/remote/
 ---
 
