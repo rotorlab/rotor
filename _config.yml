@@ -17,7 +17,7 @@ title: Rotor
 email: https://github.com/rotorlab
 description: >- # this means to ignore newlines until "baseurl:"
   Reactive Ecosystem
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/rotor" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: RotorLab
 github_username:  rotorlab
