@@ -52,6 +52,13 @@ dependencies {
  
 > `transitive` flag is needed for implementing Rotor Core dependencies
  
+Add Rotor service in `AndroidManifest.xml`:
+{% highlight xml %}
+<service
+    android:name="com.rotor.core.RotorService"
+    android:exported="false" />
+{% endhighlight %}
+
 Initialize Rotor Core in your launcher activity. Once the library connects with Redis server, application workflow can continue. 
 {% highlight java %}
 Rotor.initialize(getApplicationContext(), "http://10.0.2.2:1508/",
