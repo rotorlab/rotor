@@ -31,7 +31,6 @@ const RS = new RotorServer({
 RS.start();
 {% endhighlight %}
 
-`start()` method will launch Redis server (if it's dead), Rotor server and Turbine (database manager). For more information about Turbine, check out [this link](/server/turbine/).
+`start()` method will launch Redis server (if it's dead), Rotor server and Turbine (database manager). For more information about Turbine, check out [this link](https://github.com/efraespada/turbine/wiki).
  
-`databases` param defines a list of database names for load. If any database doesn't exist, it will be created.
-
+`databases` param defines a list of database names for loading it. If any database doesn't exist, it will be created.
