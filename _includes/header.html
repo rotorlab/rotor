@@ -1,10 +1,11 @@
 <header class="site-header" role="banner">
 
-  <div class="wrapper">
+  <div class="nav-title">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
+    <!--
     {%- if page_paths -%}
       <nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -25,6 +26,73 @@
           {%- endfor -%}
         </div>
       </nav>
-    {%- endif -%}
+    {%- endif -%}-->
   </div>
 </header>
+<div class="navigation-bar-fix">
+  <ul class="nav-list">
+    <li>
+      <i class="mdi mdi-auto-fix inliner"></i><a href="/get-started/" class="title inliner">Get Started</a>
+    </li>
+    <li>
+      <i class="mdi mdi-database inliner"></i><a href="/database/" class="title inliner">Database</a>
+      <ul class="sub-list">
+        <li>
+          <i class="mdi mdi-screwdriver inliner"></i><a href="/database/implementation/" class="inliner">Implementation</a>
+        </li>
+        <li>
+          <i class="mdi mdi-cube-send inliner"></i><a href="/database/remote/" class="inliner">Remote objects</a>
+        </li>
+        <li>
+          <i class="mdi mdi-guy-fawkes-mask inliner"></i><a href="/database/queries-masks/" class="inliner">Queries And Masks</a>
+        </li>
+        <li>
+          <i class="mdi mdi-comment-question inliner"></i><a href="https://github.com/rotorlab/database-kotlin/issues" class="inliner">Issues</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <i class="mdi mdi-bell-ring inliner"></i><a href="/notifications/" class="title inliner">Notifications</a>
+      <ul class="sub-list">
+        <li>
+          <i class="mdi mdi-screwdriver inliner"></i><a href="/notifications/implementation/" class="inliner">Implementation</a>
+        </li>
+        <li>
+          <i class="mdi mdi-send inliner"></i><a href="/notifications/send/" class="inliner">Send Notification</a>
+        </li>
+        <li>
+          <i class="mdi mdi-call-split inliner"></i><a href="/notifications/routing/" class="inliner">Activity Routing</a>
+        </li>
+        <li>
+          <i class="mdi mdi-comment-question inliner"></i><a href="https://github.com/rotorlab/notifications-kotlin/issues" class="inliner">Issues</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <i class="mdi mdi-server-network inliner"></i><a href="/server/" class="title inliner">Server</a>
+      <ul class="sub-list">
+        <li>
+          <img src="{{ "/assets/redis.png" | absolute_url }}" height="15" width="15" class="inliner m-right-8"/><a href="/server/redis/" class="inliner">Redis</a>
+        </li>
+        <li>
+          <i class="mdi mdi-screwdriver inliner"></i><a href="/server/implementation/" class="inliner">Implementation</a>
+        </li>
+        <li>
+          <i class="mdi mdi-vector-point inliner"></i><a href="/server/paths-models/" class="inliner">Paths And Models</a>
+        </li>
+        <!--li>
+          <i class="mdi mdi-gauge-full inliner"></i><a href="/server/performance/" class="inliner">Performance</a>
+        </li-->
+        <li>
+          <i class="mdi mdi-flask-outline inliner"></i><a href="https://github.com/efraespada/turbine/wiki" class="inliner">Turbine</a>
+        </li>
+        <li>
+          <i class="mdi mdi-comment-question inliner"></i><a href="https://github.com/rotorlab/server-node/issues" class="inliner">Issues</a>
+        </li>
+      </ul>
+    </li>
+    <!--li>
+      <i class="mdi mdi-new-box inliner"></i><a class="title inliner">Releases</a>
+    </li-->
+  </ul>
+</div>

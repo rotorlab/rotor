@@ -2,7 +2,7 @@
 layout: default
 ---
 
-Welcome to Rotor, the reactive ecosystem that redesigns the way of work with remote data and is simple and easy to use.
+Welcome to Rotor, the reactive ecosystem that redesigns the way of work with remote data. It is quite simple and easy to use.
 
 - Build APIs and databases in seconds with few lines
 - Work with same Java objects in different devices
